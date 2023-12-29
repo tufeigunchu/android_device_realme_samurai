@@ -374,10 +374,10 @@ function configure_zram_parameters() {
             echo 2684354560 > /sys/block/zram0/disksize
         else
             #config 2GB+256M zram size with memory greater than 6GB
-            echo 2415919104 > /sys/block/zram0/disksize
+            echo 805306368 > /sys/block/zram0/disksize
         fi
-        echo 160 > /proc/sys/vm/swappiness
-        echo 60 > /proc/sys/vm/direct_swappiness
+        echo 10 > /proc/sys/vm/swappiness
+        echo 10 > /proc/sys/vm/direct_swappiness
         mkswap /dev/block/zram0
         swapon /dev/block/zram0 -p 32758
     fi
